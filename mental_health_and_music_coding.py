@@ -140,13 +140,18 @@ for music_effects in music_effects:
         print(music_effects)
     
 
-#PLOTS
-import matplotlib.pyplot as plt
 
-plt.title("Hours of music per day by age group")
-plt.xlabel("Age")
-plt.ylabel("Hours Per Day")
-y = Hours_Per_Day
-x = Age
-plt.bar(x, y)
-plt.show()
+#Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
+# Extract data and observe the data in a graph
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = pd.read_csv('mxmh_survey_results.csv')
+
+
+print(data.describe())
+
+sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+
