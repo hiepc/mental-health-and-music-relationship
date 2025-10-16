@@ -144,6 +144,17 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+#histogram
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = insomnia
+plt.title("Self-Reported Insomnia")
+plt.xlabel("Insomnia on a scale from 1-10")
+plt.hist(x)
+plt.show()
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -154,4 +165,7 @@ data = pd.read_csv('mxmh_survey_results.csv')
 print(data.describe())
 
 sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+
+
+
 
