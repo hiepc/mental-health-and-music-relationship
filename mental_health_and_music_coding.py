@@ -164,8 +164,14 @@ data = pd.read_csv('mxmh_survey_results.csv')
 
 print(data.describe())
 
+<<<<<<< Updated upstream
 sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
 
 
 
+=======
+g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
+g.fig.subplots_adjust(top=0.85)
+>>>>>>> Stashed changes
