@@ -176,12 +176,26 @@ g.fig.subplots_adjust(top=0.85)
 import matplotlib.pyplot as plt
 import numpy as np
 
-y = np.array([Frequency_Classical, Frequency_Country, Frequency_EDM, Frequency_Folk, Frequency_Gospel, Frequency_Hip_hop, Frequency_Jazz, Frequency_K_pop, Frequency_Latin, Frequency_Lofi, Frequency_Metal, Frequency_Pop, Frequency_RNB, Frequency_Rap, Frequency_Rock, Frequency_VGM])
-mylabels = ["classical", "country", "EDN", "Folk", "Gospel", "Hip_hop", "Jazz", "k_pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "video_game_music"]
+#w = my_string.count("Very frequently")
 
-plt.pie(y, labels = mylabels)
-plt.show() 
 
+#y = np.array([Frequency_Classical, Frequency_Country, Frequency_EDM, Frequency_Folk, Frequency_Gospel, Frequency_Hip_hop, Frequency_Jazz, Frequency_K_pop, Frequency_Latin, Frequency_Lofi, Frequency_Metal, Frequency_Pop, Frequency_RNB, Frequency_Rap, Frequency_Rock, Frequency_VGM])
+#mylabels = ["classical", "country", "EDN", "Folk", "Gospel", "Hip_hop", "Jazz", "k_pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "video_game_music"]
+
+#plt.pie(y, labels = mylabels)
+#plt.show() 
+
+
+print(data["Frequency [Classical]"].value_counts())
+plt.xlabel("")
+plt.ylabel("")
+
+g.fig.suptitle("")
+g = sns.relplot()
+
+plt.title("The frequency listened to Classical music")
+
+plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
 
 
 
