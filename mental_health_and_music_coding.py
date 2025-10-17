@@ -144,17 +144,42 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+#1 plot of any type containing data from more than 1 array using different 
+#colors and line styles
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = Hours_Per_Day
+y1 = anxiety
+y2 = depression
+width = 0.1
+
+plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='//')
+plt.bar(x + width , y2, width, color='salmon', label='depression', hatch='\\')
+
+# Add labels
+plt.xlabel('Hours of Music Listened per Day')
+plt.ylabel('Mental Health Conditions Rated from 1-10')
+plt.title('Self-Reporded Mental Health Conditions Based on Hours of Music Listened per Day')
+plt.legend()
+plt.show()
+#Comment: This is a bar plot containing data from 
+
 #histogram
 import pandas as pd
 import matplotlib.pyplot as plt
 
 x = insomnia
 plt.title("Self-Reported Insomnia")
-plt.xlabel("Insomnia on a scale from 1-10")
+plt.xlabel("Insomnia on a Scale from 1-10")
+plt.ylabel("Number of Participants")
 plt.hist(x)
 plt.show()
+#Comment: Each participant have to rate their insomnia on a scale from 1-10. 
+#This plot (historgram) displays the frequency of each rating. 
 
 
+#scatter plot
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -164,9 +189,8 @@ data = pd.read_csv('mxmh_survey_results.csv')
 
 print(data.describe())
 
-<<<<<<< Updated upstream
-sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
+<<<<<<< Updated upstream
 
 
 
@@ -174,7 +198,24 @@ g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
 =======
+=======
+#=======
+>>>>>>> Stashed changes
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
->>>>>>> Stashed changes
+#>>>>>>> Stashed changes
+#Comment: In this scatter plot, each dot represents a single observation. 
+#This plot allows us to determine if there's a relationship between the age of a person and the number of hours of music listened in a day.
+
+
+
+
+
+
+
+
+
+
+
+
