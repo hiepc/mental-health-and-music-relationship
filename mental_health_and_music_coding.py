@@ -234,5 +234,26 @@ plt.xlabel('Streaming service')
 plt.ylabel('Hours per day')
 plt.show()
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+data = pd.read_csv('mxmh_survey_results.csv')
+data_sample= data.sample(30)
+
+print(data_sample['Age'],data_sample['Anxiety'].describe())
+
+
+plt.scatter(data_sample['Age'],data_sample['Anxiety'], color ='green')
+
+plt.title('The anxiety out of ten by the age')
+plt.ylabel('Age')
+plt.xlabel('Anxiety')
+
+plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
+plt.grid()
+plt.show()
+
 
 
