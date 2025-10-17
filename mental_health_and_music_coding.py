@@ -152,7 +152,7 @@ import matplotlib.pyplot as plt
 x = Hours_Per_Day
 y1 = anxiety
 y2 = depression
-width = 0.1
+width = 0.16
 
 plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
 plt.bar(x + width , y2, width, color='salmon', label='depression', hatch='\\')
