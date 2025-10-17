@@ -164,17 +164,26 @@ data = pd.read_csv('mxmh_survey_results.csv')
 
 print(data.describe())
 
-<<<<<<< Updated upstream
 sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
 
-
-
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
-=======
-g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
-g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
-g.fig.subplots_adjust(top=0.85)
->>>>>>> Stashed changes
+
+
+#pie plot
+import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([Frequency_Classical, Frequency_Country, Frequency_EDM, Frequency_Folk, Frequency_Gospel, Frequency_Hip_hop, Frequency_Jazz, Frequency_K_pop, Frequency_Latin, Frequency_Lofi, Frequency_Metal, Frequency_Pop, Frequency_RNB, Frequency_Rap, Frequency_Rock, Frequency_VGM])
+mylabels = ["classical", "country", "EDN", "Folk", "Gospel", "Hip_hop", "Jazz", "k_pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "video_game_music"]
+
+plt.pie(y, labels = mylabels)
+plt.show() 
+
+
+
+
+
+
