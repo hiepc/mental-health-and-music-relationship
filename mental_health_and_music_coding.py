@@ -151,10 +151,11 @@ import matplotlib.pyplot as plt
 x = insomnia
 plt.title("Self-Reported Insomnia")
 plt.xlabel("Insomnia on a scale from 1-10")
+plt.ylabel("Number of reported cases")
 plt.hist(x)
 plt.show()
 
-
+#scatter plot
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -164,11 +165,13 @@ data = pd.read_csv('mxmh_survey_results.csv')
 
 print(data.describe())
 
-sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
-
+#sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
-g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
+plt.title("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
+plt.xlabel("Age")
+plt.ylabel("Hours per day")
+g.fig.suptitle("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
 
 
@@ -187,8 +190,6 @@ import numpy as np
 
 
 print(data["Frequency [Classical]"].value_counts())
-plt.xlabel("")
-plt.ylabel("")
 
 g.fig.suptitle("")
 g = sns.relplot()
@@ -200,7 +201,6 @@ plt.show()
 
 #bar plot
 import pandas as pd
-
 
 spotify_user = data[data['Primary streaming service'] == 'Spotify']
 mean_hours_per_day_s = spotify_user['Hours per day'].mean()
@@ -255,6 +255,33 @@ plt.xlabel('Age')
 
 plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
 plt.grid()
+plt.show()
+
+#one plot two subplots
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = pd.read_csv('mxmh_survey_results.csv')
+
+fig,(ax1, ax2) = plt.subplots(1, 2, figsize=(14,6))
+
+#right subplot
+sns.countplot(data = data, x = "Music effects", ax = ax1, palette=["blue", "red", "green"], order= data["Music effects"].value_counts().index)
+ax1.set_title("Distribution of Music Effects on Mental Health", fontsize=13, fontweight="bold")
+ax1.set_xlabel("Music Effect", fontsize=11)
+ax1.set_ylabel("Meantal Health", fontsize=11)
+
+#left subplot
+mental_health_columns = ["Anxiety", "Depression", "Insomnia", "OCD"]
+melted_data = data.melt(id_vars="Music effects", value_vars=mental_health_columns, var_name="Condition", value_name="Score")
+
+sns.barplot(data=melted_data, x="Condition", y="Score", hue="Music effects", ax=ax2, palette=["cyan", "pink", "purple"])
+ax2.set_title("Average Mental Health Scores by Music Effect", fontsize=13, fontweight="bold")
+ax2.set_xlabel("Mental Health condition", fontsize=11)
+ax2.set_ylabel("Average Score (0-10 scale)", fontsize=11)
+ax2.legend(title="Music Effect")
+
 plt.show()
 
 
