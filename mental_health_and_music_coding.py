@@ -240,16 +240,18 @@ import seaborn as sns
 
 
 data = pd.read_csv('mxmh_survey_results.csv')
-data_sample= data.sample(30)
+data_sample= data.sample(100)
 
 print(data_sample['Age'],data_sample['Anxiety'].describe())
 
 
 plt.scatter(data_sample['Age'],data_sample['Anxiety'], color ='green')
+plt.scatter(data_sample['Age'],data_sample['Depression'], color ='pink')
+plt.scatter(data_sample['Age'],data_sample['Insomnia'], color ='red')
 
-plt.title('The anxiety out of ten by the age')
-plt.ylabel('Age')
-plt.xlabel('Anxiety')
+plt.title('The mental health by the age')
+plt.ylabel('Metal health')
+plt.xlabel('Age')
 
 plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
 plt.grid()
