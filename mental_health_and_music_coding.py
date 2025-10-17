@@ -154,7 +154,7 @@ y1 = anxiety
 y2 = depression
 width = 0.1
 
-plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='//')
+plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
 plt.bar(x + width , y2, width, color='salmon', label='depression', hatch='\\')
 
 # Add labels
@@ -163,7 +163,9 @@ plt.ylabel('Mental Health Conditions Rated from 1-10')
 plt.title('Self-Reporded Mental Health Conditions Based on Hours of Music Listened per Day')
 plt.legend()
 plt.show()
-#Comment: This is a bar plot containing data from 
+#Comment: This is a bar plot containing data from anxiety and depression. 
+#It shows how anxiety and depression are affected depending on the hours of music.
+#Anxiety and depression are differentiated by colors and design.
 
 #histogram
 import pandas as pd
