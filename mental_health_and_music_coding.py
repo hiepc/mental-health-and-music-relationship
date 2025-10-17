@@ -196,8 +196,43 @@ g = sns.relplot()
 plt.title("The frequency listened to Classical music")
 
 plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
+plt.show()
+
+#bar plot
+import pandas as pd
 
 
+spotify_user = data[data['Primary streaming service'] == 'Spotify']
+mean_hours_per_day_s = spotify_user['Hours per day'].mean()
+print('Mean of Spotify users:', mean_hours_per_day_s)
+
+apple_music_user = data[data['Primary streaming service'] == 'Apple Music']
+mean_hours_per_day_a = apple_music_user['Hours per day'].mean()
+print('Mean of Apple Music users:', mean_hours_per_day_a)
+
+youtube_music_user = data[data['Primary streaming service'] == 'YouTube Music']
+mean_hours_per_day_y = youtube_music_user['Hours per day'].mean()
+print('Mean of YouTube Music users:', mean_hours_per_day_y)
+
+pandora_user = data[data['Primary streaming service'] == 'Pandora']
+mean_hours_per_day_p = pandora_user['Hours per day'].mean()
+print('Mean of Pandora users:', mean_hours_per_day_p)
+
+no_streaming_service_user = data[data['Primary streaming service'] == 'I do not use a streaming service.']
+mean_hours_per_day_i = no_streaming_service_user['Hours per day'].mean()
+print('Mean of no streaming services:', mean_hours_per_day_i)
+
+
+import matplotlib.pyplot as plt
+
+Streaming_service = ['Spotify', 'Pandora', 'YouTube Music', 'Apple Music', 'None']
+Means_of_hours_per_day = [3.8373, 2.1364, 3.2207, 3.5588, 2.9542]
+
+plt.bar(Streaming_service, Means_of_hours_per_day, color = 'hotpink')
+plt.title('Streaming service by Hours per day')
+plt.xlabel('Streaming service')
+plt.ylabel('Hours per day')
+plt.show()
 
 
 
