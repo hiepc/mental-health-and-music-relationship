@@ -197,6 +197,7 @@ plt.xlabel("Age")
 plt.ylabel("Hours per day")
 g.fig.suptitle("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
+
 #Comment explination: This plot represents the number of hours listened to daily based off of the age group
 #as well as if there are any effects whatsoever on peope if they are improvements, if they worsen or if there is no change.
 
@@ -227,6 +228,7 @@ plt.show()
 # it is split into four categories rarely (the biggest area), sometimes (the second biggest), never (second smallest) and very frequently (the smallest).
 
 ##bar plot
+#explanation: To make the bar plot of the hours per day of listenning to music by the different streaming services, we first calculated their own individual mean then repsted the plot with bars.
 import pandas as pd
 
 spotify_user = data[data['Primary streaming service'] == 'Spotify']
@@ -261,7 +263,9 @@ plt.xlabel('Streaming service')
 plt.ylabel('Hours per day')
 plt.show()
 
+
 ##grid plot
+#explanation: This plot uses a data sample of the age of the participants by their auto-evaluation of the level of their different mental disorder: anxiety, insomnia, depression
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -278,10 +282,12 @@ plt.scatter(data_sample['Age'],data_sample['Depression'], color ='pink')
 plt.scatter(data_sample['Age'],data_sample['Insomnia'], color ='red')
 
 plt.title('The mental health by the age')
-plt.ylabel('Metal health')
+plt.ylabel('Mental health')
 plt.xlabel('Age')
 
+
 plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
+plt.legend()
 plt.grid()
 plt.show()
 
