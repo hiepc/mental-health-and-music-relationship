@@ -144,6 +144,25 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = Hours_Per_Day
+y1 = anxiety
+y2 = depression
+width = 0.16
+
+plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
+plt.bar(x + width , y2, width, color='salmon', label='depression', hatch='\\')
+
+# Add labels
+plt.xlabel('Hours of Music Listened per Day')
+plt.ylabel('Mental Health Conditions Rated from 1-10')
+plt.title('Self-Reporded Mental Health Conditions Based on Hours of Music Listened per Day')
+plt.legend()
+plt.show()
+
+
 #histogram
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -154,6 +173,7 @@ plt.xlabel("Insomnia on a scale from 1-10")
 plt.ylabel("Number of reported cases")
 plt.hist(x)
 plt.show()
+
 
 #scatter plot
 import pandas as pd
@@ -234,6 +254,7 @@ plt.xlabel('Streaming service')
 plt.ylabel('Hours per day')
 plt.show()
 
+#grid plot
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -283,6 +304,4 @@ ax2.set_ylabel("Average Score (0-10 scale)", fontsize=11)
 ax2.legend(title="Music Effect")
 
 plt.show()
-
-
 
