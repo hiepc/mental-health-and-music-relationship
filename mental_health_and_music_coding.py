@@ -144,8 +144,7 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
-#array using different colors and line styles
-
+##array using different colors and line styles
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -167,7 +166,7 @@ plt.show()
 #It shows how anxiety and depression are affected depending on the hours of music.
 #Anxiety and depression are differentiated by colors and design.
 
-#histogram
+##histogram
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -179,7 +178,7 @@ plt.hist(x)
 plt.show()
 
 
-#scatter plot
+##scatter plot
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -199,7 +198,7 @@ g.fig.suptitle("Hours per day listened to music based on the age group and the b
 g.fig.subplots_adjust(top=0.85)
 
 
-#pie plot
+##pie plot
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -223,7 +222,7 @@ plt.title("The frequency listened to Classical music")
 plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
 plt.show()
 
-#bar plot
+##bar plot
 import pandas as pd
 
 spotify_user = data[data['Primary streaming service'] == 'Spotify']
@@ -258,7 +257,7 @@ plt.xlabel('Streaming service')
 plt.ylabel('Hours per day')
 plt.show()
 
-#grid plot
+##grid plot
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -282,7 +281,7 @@ plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
 plt.grid()
 plt.show()
 
-#one plot two subplots
+##one plot two subplots
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
