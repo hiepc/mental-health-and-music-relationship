@@ -176,7 +176,8 @@ plt.xlabel("Insomnia on a scale from 1-10")
 plt.ylabel("Number of reported cases")
 plt.hist(x)
 plt.show()
-
+#Comment explination: This plot represents the number of responses to having insomnia and putting it on a 
+#scale from 1-10 to see how many reported cases are high and low in insomnia cases.
 
 ##scatter plot
 import pandas as pd
@@ -196,7 +197,8 @@ plt.xlabel("Age")
 plt.ylabel("Hours per day")
 g.fig.suptitle("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
-
+#Comment explination: This plot represents the number of hours listened to daily based off of the age group
+#as well as if there are any effects whatsoever on peope if they are improvements, if they worsen or if there is no change.
 
 ##pie plot
 import matplotlib.pyplot as plt
@@ -221,6 +223,8 @@ plt.title("The frequency listened to Classical music")
 
 plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
 plt.show()
+#Comment explination: This plot represents the amout of times(frequency) someone listens to a specific genre (classical)
+# it is split into four categories rarely (the biggest area), sometimes (the second biggest), never (second smallest) and very frequently (the smallest).
 
 ##bar plot
 import pandas as pd
