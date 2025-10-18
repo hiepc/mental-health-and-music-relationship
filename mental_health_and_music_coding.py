@@ -144,6 +144,8 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+#array using different colors and line styles
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -161,7 +163,9 @@ plt.ylabel('Mental Health Conditions Rated from 1-10')
 plt.title('Self-Reporded Mental Health Conditions Based on Hours of Music Listened per Day')
 plt.legend()
 plt.show()
-
+#Comment explination: This is a bar plot containing data from anxiety and depression. 
+#It shows how anxiety and depression are affected depending on the hours of music.
+#Anxiety and depression are differentiated by colors and design.
 
 #histogram
 import pandas as pd
@@ -304,4 +308,6 @@ ax2.set_ylabel("Average Score (0-10 scale)", fontsize=11)
 ax2.legend(title="Music Effect")
 
 plt.show()
-
+#comment explination: The right bar plot represents the count of respondents by music effects whether they improved, had no effect or worsened
+#The left bar plot represents the average scores of anxiety, depression, insomnia and OCD grouped by music effects whether they improved, had no effect or worsened
+#How this helps is that it shows both the distribution of perceived music effects and how they correlate with mental health scores.
