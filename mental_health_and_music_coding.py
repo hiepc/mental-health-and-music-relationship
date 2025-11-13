@@ -143,9 +143,14 @@ for music_effects in music_effects:
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+<<<<<<< HEAD
 #------------------------------------------------------------------------------------
 ##array using different colors and line styles
 
+=======
+#1 plot of any type containing data from more than 1 array using different 
+#colors and line styles
+>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -163,6 +168,7 @@ plt.ylabel('Mental Health Conditions Rated from 1-10')
 plt.title('Self-Reporded Mental Health Conditions Based on Hours of Music Listened per Day')
 plt.legend()
 plt.show()
+<<<<<<< HEAD
 #Comment explination: This is a bar plot containing data from anxiety and depression. 
 #It shows how anxiety and depression are affected depending on the hours of music.
 #Anxiety and depression are differentiated by colors and design.
@@ -170,21 +176,41 @@ plt.show()
 #------------------------------------------------------------------------------------
 
 ##histogram
+=======
+#Comment: This is a bar plot containing data from anxiety and depression. 
+#It shows how anxiety and depression are affected depending on the hours of music.
+#Anxiety and depression are differentiated by colors and design.
+
+#histogram
+>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 import pandas as pd
 import matplotlib.pyplot as plt
 
 x = insomnia
 plt.title("Self-Reported Insomnia")
+<<<<<<< HEAD
 plt.xlabel("Insomnia on a scale from 1-10")
 plt.ylabel("Number of reported cases")
 plt.hist(x)
 plt.show()
 #Comment explination: This plot represents the number of responses to having insomnia and putting it on a 
 #scale from 1-10 to see how many reported cases are high and low in insomnia cases.
+=======
+plt.xlabel("Insomnia on a Scale from 1-10")
+plt.ylabel("Number of Participants")
+plt.hist(x)
+plt.show()
+#Comment: Each participant have to rate their insomnia on a scale from 1-10. 
+#This plot (historgram) displays the frequency of each rating. 
+>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 
 #------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 ##scatter plot
+=======
+#scatter plot
+>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -194,7 +220,14 @@ data = pd.read_csv('mxmh_survey_results.csv')
 
 print(data.describe())
 
+<<<<<<< HEAD
 #sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+=======
+<<<<<<< Updated upstream
+
+sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+
+>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 plt.title("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
@@ -221,6 +254,11 @@ import numpy as np
 #plt.pie(y, labels = mylabels)
 #plt.show() 
 
+#>>>>>>> Stashed changes
+g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
+g.fig.subplots_adjust(top=0.85)
+#=======
 
 print(data["Frequency [Classical]"].value_counts())
 
@@ -260,6 +298,8 @@ no_streaming_service_user = data[data['Primary streaming service'] == 'I do not 
 mean_hours_per_day_i = no_streaming_service_user['Hours per day'].mean()
 print('Mean of no streaming services:', mean_hours_per_day_i)
 
+#Comment: In this scatter plot, each dot represents a single observation. 
+#This plot allows us to determine if there's a relationship between the age of a person and the number of hours of music listened in a day.
 
 import matplotlib.pyplot as plt
 
@@ -335,3 +375,8 @@ plt.show()
 
 #------------------------------------------------------------------------------------
 
+=======
+g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
+g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
+g.fig.subplots_adjust(top=0.85)
+>>>>>>> Stashed changes
