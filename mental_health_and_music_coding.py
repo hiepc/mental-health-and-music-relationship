@@ -386,3 +386,28 @@ g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
 
+#------------------------------------
+#-------------------------------------
+#------------------------------------
+
+
+#2. PRELIMINARY STEPS (DELIVERABLE 3) by Alice
+#a) Initial data inspection:
+
+print(data.describe())
+# gives out the mean, count (736 participants), std, minimum value for each column, maximum value for each column and the values in between.
+
+print(data.head())
+# It is useful to see quickly how the data table is presented for the entire dataset but only displaying the first 5 rows.
+print(data.tail())
+# Same thing as data.head() but instead of the first 5 rows, the last 5 rows are presented. It is useful to analyse if the dataset shows some variation going through the first rows and the last rows or if the dataset is all randomly dispersed.
+
+
+print(data.info())
+# info() function helps with seeing how many empty values we have in each columns and also the type of data we have: either float or object. 
+# We can also see that there is a total of 33 columns with 736 entries, going from 0 to 735. That means there is a total of 736 participants who answered the questionnaire.
+
+
+
+
+
