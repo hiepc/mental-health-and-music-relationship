@@ -140,11 +140,12 @@ for music_effects in music_effects:
         print(music_effects)
     
 
-
 #Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
 # Extract data and observe the data in a graph
 
+#------------------------------------------------------------------------------------
 ##array using different colors and line styles
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -166,6 +167,8 @@ plt.show()
 #It shows how anxiety and depression are affected depending on the hours of music.
 #Anxiety and depression are differentiated by colors and design.
 
+#------------------------------------------------------------------------------------
+
 ##histogram
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -178,6 +181,8 @@ plt.hist(x)
 plt.show()
 #Comment explination: This plot represents the number of responses to having insomnia and putting it on a 
 #scale from 1-10 to see how many reported cases are high and low in insomnia cases.
+
+#------------------------------------------------------------------------------------
 
 ##scatter plot
 import pandas as pd
@@ -200,6 +205,8 @@ g.fig.subplots_adjust(top=0.85)
 
 #Comment explination: This plot represents the number of hours listened to daily based off of the age group
 #as well as if there are any effects whatsoever on peope if they are improvements, if they worsen or if there is no change.
+
+#------------------------------------------------------------------------------------
 
 ##pie plot
 import matplotlib.pyplot as plt
@@ -226,6 +233,8 @@ plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometim
 plt.show()
 #Comment explination: This plot represents the amout of times(frequency) someone listens to a specific genre (classical)
 # it is split into four categories rarely (the biggest area), sometimes (the second biggest), never (second smallest) and very frequently (the smallest).
+
+#------------------------------------------------------------------------------------
 
 ##bar plot
 #explanation: To make the bar plot of the hours per day of listenning to music by the different streaming services, we first calculated their own individual mean then repsted the plot with bars.
@@ -263,6 +272,7 @@ plt.xlabel('Streaming service')
 plt.ylabel('Hours per day')
 plt.show()
 
+#------------------------------------------------------------------------------------
 
 ##grid plot
 #explanation: This plot uses a data sample of the age of the participants by their auto-evaluation of the level of their different mental disorder: anxiety, insomnia, depression
@@ -290,6 +300,8 @@ plt.plot(data_sample['Age'] ,data_sample['Anxiety'], linestyle = '')
 plt.legend()
 plt.grid()
 plt.show()
+
+#------------------------------------------------------------------------------------
 
 ##one plot two subplots
 import pandas as pd
@@ -320,3 +332,6 @@ plt.show()
 #comment explination: The right bar plot represents the count of respondents by music effects whether they improved, had no effect or worsened
 #The left bar plot represents the average scores of anxiety, depression, insomnia and OCD grouped by music effects whether they improved, had no effect or worsened
 #How this helps is that it shows both the distribution of perceived music effects and how they correlate with mental health scores.
+
+#------------------------------------------------------------------------------------
+
