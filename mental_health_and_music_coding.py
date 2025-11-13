@@ -155,7 +155,7 @@ y2 = depression
 width = 0.16
 
 plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
-plt.bar(x + width , y2, width, color='salmon', label='depression', hatch='\\')
+plt.bar(x + width, y2, width, color='salmon', label='depression', hatch='\\')
 
 # Add labels
 plt.xlabel('Hours of Music Listened per Day')
