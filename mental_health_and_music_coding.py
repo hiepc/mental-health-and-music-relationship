@@ -450,8 +450,10 @@ print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], n
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
 #Relationship between being a composer and favourite genre of music
+pd.set_option('display.max_columns', None)
 print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
 
 #Relationship between music genres and effect on mental health (improve or worsen)
-print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency [Country]"]],categorical["Frequency [EDM]"], normalize="index"))
-
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency [Country]"],categorical["Frequency [EDM]"]],categorical["Music effects"],normalize="index"))
