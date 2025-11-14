@@ -407,5 +407,36 @@ print(data.info())
 # info() function helps with seeing how many empty values we have in each columns and also the type of data we have: either float or object. 
 # We can also see that there is a total of 33 columns with 736 entries, going from 0 to 735. That means there is a total of 736 participants who answered the questionnaire.
 
+print("")
+#3 Univariate non-graphical EDA
 
+#Numerical: mean, median, mode, standard deviation, variance, skewness, kurtosis and quartiles 
+
+numerical = data.select_dtypes(include=['float64'])
+print("Mean:")
+print(numerical.mean())
+print("Median:")
+print(numerical.median())
+print("Mode:")
+print(numerical.mode()) 
+print("STD:")
+print(numerical.std())
+print("Variance:")
+print( numerical.var())
+print( "Skewness:")
+print( numerical.skew())
+print("Kurtosis:")
+print(numerical.kurt())
+print( "Quartiles:")
+print( numerical.quantile([0.25,0.5,0.75]))
+
+#Categorical：frequency counts, proportion, mode (most frequent category and the number of unique categories)
+categorical = data.select_dtypes(include=['object'])
+print("Frequency and Proportions:")
+for col in categorical:
+   print(categorical[col].value_counts(dropna=False))
+   print(categorical[col].value_counts(normalize=True))
+print("Mode:")
+print(categorical.mode())
+print(categorical.nunique())
 
