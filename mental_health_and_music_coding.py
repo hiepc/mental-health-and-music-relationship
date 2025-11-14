@@ -407,45 +407,6 @@ print(data.info())
 # info() function helps with seeing how many empty values we have in each columns and also the type of data we have: either float or object. 
 # We can also see that there is a total of 33 columns with 736 entries, going from 0 to 735. That means there is a total of 736 participants who answered the questionnaire.
 
-print("")
-#3 Univariate non-graphical EDA
-
-#Numerical: mean, median, mode, standard deviation, variance, skewness, kurtosis and quartiles 
-
-numerical = data.select_dtypes(include=['float64'])
-print("Mean:")
-print(numerical.mean())
-print("Median:")
-print(numerical.median())
-print("Mode:")
-print(numerical.mode()) 
-print("STD:")
-print(numerical.std())
-print("Variance:")
-print( numerical.var())
-print( "Skewness:")
-print( numerical.skew())
-print("Kurtosis:")
-print(numerical.kurt())
-print( "Quartiles:")
-print( numerical.quantile([0.25,0.5,0.75]))
-
-#Categorical：frequency counts, proportion, mode (most frequent category and the number of unique categories)
-categorical = data.select_dtypes(include=['object'])
-print("Frequency and Proportions:")
-for col in categorical:
-   print(categorical[col].value_counts(dropna=False))
-   print(categorical[col].value_counts(normalize=True))
-print("Mode:")
-print(categorical.mode())
-print(categorical.nunique())
-
-#5. Multivariate non-graphical EDA  
-<<<<<<< Updated upstream
-=======
-
-
-<<<<<<< HEAD
 #b) Handle duplicate entries: identify duplicate rows + remove them
 print(data.duplicated())
 # there is no duplicate in sight so no need to use the function drop_duplicates()
@@ -487,8 +448,46 @@ print(data.isnull().sum())
 
 data['Timestamp'] = pd.to_datetime(data['Timestamp'])
 print(data['Timestamp'].dtype)
->>>>>>> Stashed changes
 
+#----------------------------------------------
+#----------------------------------------------
+#----------------------------------------------
+#3) Univariate non-graphical EDA (LIA 3)
+
+#Numerical: mean, median, mode, standard deviation, variance, skewness, kurtosis and quartiles 
+
+numerical = data.select_dtypes(include=['float64'])
+print("Mean:")
+print(numerical.mean())
+print("Median:")
+print(numerical.median())
+print("Mode:")
+print(numerical.mode()) 
+print("STD:")
+print(numerical.std())
+print("Variance:")
+print( numerical.var())
+print( "Skewness:")
+print( numerical.skew())
+print("Kurtosis:")
+print(numerical.kurt())
+print( "Quartiles:")
+print( numerical.quantile([0.25,0.5,0.75]))
+
+#Categorical：frequency counts, proportion, mode (most frequent category and the number of unique categories)
+categorical = data.select_dtypes(include=['object'])
+print("Frequency and Proportions:")
+for col in categorical:
+   print(categorical[col].value_counts(dropna=False))
+   print(categorical[col].value_counts(normalize=True))
+print("Mode:")
+print(categorical.mode())
+print(categorical.nunique())
+
+#--------------------------------------------------------------
+#---------------------------------------------------------------
+#-------------------------------------------------------------
+#5. Multivariate non-graphical EDA  (LIA 3)
 
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
@@ -496,23 +495,15 @@ print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], n
 #Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
-<<<<<<< Updated upstream
-=======
 
-
-
-
-
-
-=======
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
->>>>>>> 1cc4fc922429c520d685c80045fd98b9bb05e2b0
+
 
 #Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
->>>>>>> Stashed changes
+
 #Relationship between being a composer and favourite genre of music
 pd.set_option('display.max_columns', None)
 print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
