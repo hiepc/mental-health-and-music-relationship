@@ -441,6 +441,53 @@ print(categorical.mode())
 print(categorical.nunique())
 
 #5. Multivariate non-graphical EDA  
+<<<<<<< Updated upstream
+=======
+
+
+<<<<<<< HEAD
+#b) Handle duplicate entries: identify duplicate rows + remove them
+print(data.duplicated())
+# there is no duplicate in sight so no need to use the function drop_duplicates()
+
+
+#c) Identify and manage missing values:
+    
+print(data.isnull())
+#there is 8 missing values for music effects, 107 missing values for BPM, 4 missing values for foreigh languages, 1 missing value for composer, 4 missing value for instrumentalist, 3 missinng values for listening to music while working, 1 missing value for primary streaming service used and 1 last missing value for age.
+
+#now, we fill in missing values with mean for the columns concerned (only numerical) and fill in missing values with the most common answer with the function mode() for categorical values.
+#MEAN = preferred for normally distributed data
+
+
+#fill categorical value: use MODE, the most common answer used to answer the effects of music (improve, no effect, etc.)
+data['Music effects'] = data['Music effects'].fillna(data['Music effects'].mode()[0])
+
+
+#use fillna() to fill the missing values for foreign language too with its mode(), since its yes / no answers
+data['Foreign languages'] = data['Foreign languages'].fillna(data['Foreign languages'].mode()[0])
+
+# same thing for the 1 missing value for composer (categorical value) and 4 missing values for instrumentalists column, 3 missing values for listening to music while working and 1 missing value for primary streaming service used (all categorical = used MODE function)
+data['Composer'] = data['Composer'].fillna(data['Composer'].mode()[0])
+data['Instrumentalist'] = data['Instrumentalist'].fillna(data['Instrumentalist'].mode()[0])
+data['While working'] = data['While working'].fillna(data['While working'].mode()[0])
+data['Primary streaming service'] = data['Primary streaming service'].fillna(data['Primary streaming service'].mode()[0])
+
+
+#to fill NUMERICAL values, now use the mean (like for BPM and age, which are NUMERICAL values)
+
+data['BPM'] = data['BPM'].fillna(data['BPM'].mean())
+data['Age'] = data['Age'].fillna(data['Age'].mean())
+
+
+print(data.isnull().sum())
+#now all the missing values were either categorical = used mode, or numerical = used mean to fill them.
+
+#d) Correct data types and formats: convert TIMESTAMP column to the appropriate data type: interger using pd.to_datetime() function.
+
+data['Timestamp'] = pd.to_datetime(data['Timestamp'])
+print(data['Timestamp'].dtype)
+>>>>>>> Stashed changes
 
 
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
@@ -449,6 +496,23 @@ print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], n
 #Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+=======
+#Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
+print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
+>>>>>>> 1cc4fc922429c520d685c80045fd98b9bb05e2b0
+
+#Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
+print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
+
+>>>>>>> Stashed changes
 #Relationship between being a composer and favourite genre of music
 pd.set_option('display.max_columns', None)
 print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
