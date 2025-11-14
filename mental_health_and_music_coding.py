@@ -440,3 +440,18 @@ print("Mode:")
 print(categorical.mode())
 print(categorical.nunique())
 
+#5. Multivariate non-graphical EDA  
+
+
+#Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
+print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
+
+#Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
+print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
+
+#Relationship between being a composer and favourite genre of music
+print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
+
+#Relationship between music genres and effect on mental health (improve or worsen)
+print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency [Country]"]],categorical["Frequency [EDM]"], normalize="index"))
+
