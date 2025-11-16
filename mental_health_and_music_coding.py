@@ -244,18 +244,9 @@ g.fig.subplots_adjust(top=0.85)
 
 ##pie plot
 import matplotlib.pyplot as plt
-import numpy as np
-
-#w = my_string.count("Very frequently")
 
 
-#y = np.array([Frequency_Classical, Frequency_Country, Frequency_EDM, Frequency_Folk, Frequency_Gospel, Frequency_Hip_hop, Frequency_Jazz, Frequency_K_pop, Frequency_Latin, Frequency_Lofi, Frequency_Metal, Frequency_Pop, Frequency_RNB, Frequency_Rap, Frequency_Rock, Frequency_VGM])
-#mylabels = ["classical", "country", "EDN", "Folk", "Gospel", "Hip_hop", "Jazz", "k_pop", "Latin", "Lofi", "Metal", "Pop", "R&B", "Rap", "Rock", "video_game_music"]
 
-#plt.pie(y, labels = mylabels)
-#plt.show() 
-
-#>>>>>>> Stashed changes
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 g.fig.subplots_adjust(top=0.85)
@@ -270,7 +261,7 @@ plt.title("The frequency listened to Classical music")
 
 plt.pie(data["Frequency [Classical]"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
 plt.show()
-#Comment explination: This plot represents the amout of times(frequency) someone listens to a specific genre (classical)
+#Comment explanation: This plot represents the amout of times(frequency) someone listens to a specific genre (classical)
 # it is split into four categories rarely (the biggest area), sometimes (the second biggest), never (second smallest) and very frequently (the smallest).
 
 #------------------------------------------------------------------------------------
@@ -548,3 +539,46 @@ print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=Tr
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency [Country]"],categorical["Frequency [EDM]"]],categorical["Music effects"],normalize="index"))
+
+#--------------------------------------------------------------
+#---------------------------------------------------------------
+#-------------------------------------------------------------
+#6. Multivariate graphical EDA
+
+#6.1.Visualizing statistical relationships (5 plots): (using SEABORN)
+
+    
+#a) 1 plot using Faceting feature (col parameter in the relplot() function)
+h = sns.relplot(data=data, y="Hours per day", x="While working", hue="Age", col="Music effects")
+h.fig.suptitle("Title: Hours per day listened to music while working or not: (age group and the benefits from it)", fontsize=12, fontweight='bold')
+h.fig.subplots_adjust(top=0.85)
+
+#b) 1 plot representing 5 variables at once (x, y, hue, size, col): 
+
+w = sns.relplot(data=data, y="Hours per day", x="Music effects", hue="Age", size="Instrumentalist", col="While working")
+w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
+w.fig.subplots_adjust(top=0.85)
+#c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
+z = sns.relplot(data=data, y="Depression", x="Insomnia", kind="line", hue="Music effects",col="Music effects")
+z.fig.suptitle("Title: The depression level based on insomnia with the effects of music")
+z.fig.subplots_adjust(top=0.85)
+# We chose the level of insomnia and the level of depression as continuous variables since they both increase and decrease with one another. They vary from 0 to 10, 0 being low insomnia and 10 being high insomnia (same thing for depression). 
+#Also, based on the music effects,it is possible to see that there is higher level of insomnia, therefore higher level of depression when participants feel like the effects have worsen after listening to music. 
+
+
+#d) 1 plot illustrating standard deviation
+
+
+
+#e) 1 plot including a linear regression
+
+
+
+
+
+
+
+
+
+
+
