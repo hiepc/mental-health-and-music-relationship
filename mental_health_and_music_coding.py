@@ -499,6 +499,8 @@ plt.ylabel("y")
 sns.histplot(data=data, x= "Hours per day", bins=5)
 sns.histplot(data=data, x= "Hours per day", bins=15)
 sns.histplot(data=data, x= "Hours per day", bins=20)
+#Change the title:
+g.fig.suptitle("")
 plt.title("Title3", fontsize=12, fontweight='bold')
 plt.xlabel("x")
 plt.ylabel("y")
@@ -509,20 +511,10 @@ plt.ylabel("y")
 
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
-=======
 
 
 
 
-#Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
-print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
->>>>>>> 1cc4fc922429c520d685c80045fd98b9bb05e2b0
->>>>>>> Stashed changes
-
-#Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
-print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
-
-<<<<<<< Updated upstream
 
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
@@ -532,8 +524,16 @@ print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], n
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
 
-=======
->>>>>>> Stashed changes
+
+#Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
+print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
+
+
+#Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
+print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
+
+
+
 #Relationship between being a composer and favourite genre of music
 pd.set_option('display.max_columns', None)
 print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
