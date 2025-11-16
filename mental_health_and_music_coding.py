@@ -533,7 +533,34 @@ for col in categorical:
 print("Mode:")
 print(categorical.mode())
 print(categorical.nunique())
-
+#----------------------------------------------
+#----------------------------------------------
+#----------------------------------------------
+#4. Univariate graphical EDA (LIA 3)
+#basic theme
+sns.set_theme()
+#A) Basic histogram with custom bins
+#
+sns.histplot(data=data, x= "Age", bins=5)
+sns.histplot(data=data, x= "Age", bins=15)
+sns.histplot(data=data, x= "Age", bins=20)
+plt.title("Title", fontsize=12, fontweight='bold')
+plt.xlabel("x")
+plt.ylabel("y")
+#
+sns.histplot(data=data, x= "BPM", bins=5)
+sns.histplot(data=data, x= "BPM", bins=15)
+sns.histplot(data=data, x= "BPM", bins=20)
+plt.title("Title2", fontsize=12, fontweight='bold')
+plt.xlabel("x")
+plt.ylabel("y")
+#
+sns.histplot(data=data, x= "Hours per day", bins=5)
+sns.histplot(data=data, x= "Hours per day", bins=15)
+sns.histplot(data=data, x= "Hours per day", bins=20)
+plt.title("Title3", fontsize=12, fontweight='bold')
+plt.xlabel("x")
+plt.ylabel("y")
 #--------------------------------------------------------------
 #---------------------------------------------------------------
 #-------------------------------------------------------------
