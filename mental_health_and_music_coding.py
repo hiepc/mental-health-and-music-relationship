@@ -389,31 +389,19 @@ g.fig.subplots_adjust(top=0.85)
 #------------------------------------
 #-------------------------------------
 #------------------------------------
-
-
 #2. PRELIMINARY STEPS (DELIVERABLE 3) by Alice
-#a) Initial data inspection:
 
+#a) Initial data inspection:
 print(data.describe())
 # gives out the mean, count (736 participants), std, minimum value for each column, maximum value for each column and the values in between.
-
 print(data.head())
 # It is useful to see quickly how the data table is presented for the entire dataset but only displaying the first 5 rows.
 print(data.tail())
 # Same thing as data.head() but instead of the first 5 rows, the last 5 rows are presented. It is useful to analyse if the dataset shows some variation going through the first rows and the last rows or if the dataset is all randomly dispersed.
-
-
 print(data.info())
 # info() function helps with seeing how many empty values we have in each columns and also the type of data we have: either float or object. 
 # We can also see that there is a total of 33 columns with 736 entries, going from 0 to 735. That means there is a total of 736 participants who answered the questionnaire.
 
-<<<<<<< Updated upstream
-#b) Handle duplicate entries: identify duplicate rows + remove them
-print(data.duplicated())
-# there is no duplicate in sight so no need to use the function drop_duplicates()
-=======
-print("")
-
 
 #b) Handle duplicate entries: identify duplicate rows + remove them
 print(data.duplicated())
@@ -424,17 +412,15 @@ print(data.duplicated())
     
 print(data.isnull())
 #there is 8 missing values for music effects, 107 missing values for BPM, 4 missing values for foreigh languages, 1 missing value for composer, 4 missing value for instrumentalist, 3 missinng values for listening to music while working, 1 missing value for primary streaming service used and 1 last missing value for age.
-
 #now, we fill in missing values with mean for the columns concerned (only numerical) and fill in missing values with the most common answer with the function mode() for categorical values.
 #MEAN = preferred for normally distributed data
 
 
 #fill categorical value: use MODE, the most common answer used to answer the effects of music (improve, no effect, etc.)
 data['Music effects'] = data['Music effects'].fillna(data['Music effects'].mode()[0])
-
-
 #use fillna() to fill the missing values for foreign language too with its mode(), since its yes / no answers
 data['Foreign languages'] = data['Foreign languages'].fillna(data['Foreign languages'].mode()[0])
+
 
 # same thing for the 1 missing value for composer (categorical value) and 4 missing values for instrumentalists column, 3 missing values for listening to music while working and 1 missing value for primary streaming service used (all categorical = used MODE function)
 data['Composer'] = data['Composer'].fillna(data['Composer'].mode()[0])
@@ -442,62 +428,17 @@ data['Instrumentalist'] = data['Instrumentalist'].fillna(data['Instrumentalist']
 data['While working'] = data['While working'].fillna(data['While working'].mode()[0])
 data['Primary streaming service'] = data['Primary streaming service'].fillna(data['Primary streaming service'].mode()[0])
 
-
 #to fill NUMERICAL values, now use the mean (like for BPM and age, which are NUMERICAL values)
-
 data['BPM'] = data['BPM'].fillna(data['BPM'].mean())
 data['Age'] = data['Age'].fillna(data['Age'].mean())
-
 
 print(data.isnull().sum())
 #now all the missing values were either categorical = used mode, or numerical = used mean to fill them.
 
-#d) Correct data types and formats: convert TIMESTAMP column to the appropriate data type: interger using pd.to_datetime() function.
-
-data['Timestamp'] = pd.to_datetime(data['Timestamp'])
-print(data['Timestamp'].dtype)
->>>>>>> Stashed changes
-
-
-#c) Identify and manage missing values:
-    
-print(data.isnull())
-#there is 8 missing values for music effects, 107 missing values for BPM, 4 missing values for foreigh languages, 1 missing value for composer, 4 missing value for instrumentalist, 3 missinng values for listening to music while working, 1 missing value for primary streaming service used and 1 last missing value for age.
-
-#now, we fill in missing values with mean for the columns concerned (only numerical) and fill in missing values with the most common answer with the function mode() for categorical values.
-#MEAN = preferred for normally distributed data
-
-
-<<<<<<< Updated upstream
-#fill categorical value: use MODE, the most common answer used to answer the effects of music (improve, no effect, etc.)
-data['Music effects'] = data['Music effects'].fillna(data['Music effects'].mode()[0])
-
-
-#use fillna() to fill the missing values for foreign language too with its mode(), since its yes / no answers
-data['Foreign languages'] = data['Foreign languages'].fillna(data['Foreign languages'].mode()[0])
-
-# same thing for the 1 missing value for composer (categorical value) and 4 missing values for instrumentalists column, 3 missing values for listening to music while working and 1 missing value for primary streaming service used (all categorical = used MODE function)
-data['Composer'] = data['Composer'].fillna(data['Composer'].mode()[0])
-data['Instrumentalist'] = data['Instrumentalist'].fillna(data['Instrumentalist'].mode()[0])
-data['While working'] = data['While working'].fillna(data['While working'].mode()[0])
-data['Primary streaming service'] = data['Primary streaming service'].fillna(data['Primary streaming service'].mode()[0])
-
-
-#to fill NUMERICAL values, now use the mean (like for BPM and age, which are NUMERICAL values)
-
-data['BPM'] = data['BPM'].fillna(data['BPM'].mean())
-data['Age'] = data['Age'].fillna(data['Age'].mean())
-
-
-print(data.isnull().sum())
-#now all the missing values were either categorical = used mode, or numerical = used mean to fill them.
 
 #d) Correct data types and formats: convert TIMESTAMP column to the appropriate data type: interger using pd.to_datetime() function.
-
 data['Timestamp'] = pd.to_datetime(data['Timestamp'])
 print(data['Timestamp'].dtype)
-
-
 
 #----------------------------------------------
 #----------------------------------------------
