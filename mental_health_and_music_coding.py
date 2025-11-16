@@ -504,6 +504,12 @@ g.fig.suptitle("")
 plt.title("Title3", fontsize=12, fontweight='bold')
 plt.xlabel("x")
 plt.ylabel("y")
+
+#B) using conditioning on other variables (proposition)
+#sns.scatterplot(data=data, x="Age", y="Hours per day", hue="Depression")
+#plt.title("Scatterplot showing the depression levels in the relationship between the age and the amount of hours listening to music per day")
+#plt.show()
+
 #--------------------------------------------------------------
 #---------------------------------------------------------------
 #-------------------------------------------------------------
