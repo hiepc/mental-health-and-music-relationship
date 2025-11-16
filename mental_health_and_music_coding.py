@@ -555,7 +555,7 @@ h.fig.subplots_adjust(top=0.85)
 
 #b) 1 plot representing 5 variables at once (x, y, hue, size, col): 
 
-w = sns.relplot(data=data, y="Hours per day", x="Music effects", hue="Age", size="Instrumentalist", col="While working")
+w = sns.relplot(data=data, y="Music effects", x="Hours per day", hue="Age", size="Instrumentalist", col="While working")
 w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
 w.fig.subplots_adjust(top=0.85)
 #c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
