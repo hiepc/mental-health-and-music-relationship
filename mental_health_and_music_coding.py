@@ -804,10 +804,10 @@ h.fig.suptitle("Title: Hours per day listened to music while working or not: (ag
 h.fig.subplots_adjust(top=0.85)
 
 #b) 1 plot representing 5 variables at once (x, y, hue, size, col): 
-
 w = sns.relplot(data=data, y="Music effects", x="Hours per day", hue="Age", size="Instrumentalist", col="While working")
 w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
 w.fig.subplots_adjust(top=0.85)
+
 #c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
 z = sns.relplot(data=data, y="Depression", x="Insomnia", kind="line", hue="Music effects",col="Music effects")
 z.fig.suptitle("Title: The depression level based on insomnia with the effects of music")
@@ -816,11 +816,91 @@ z.fig.subplots_adjust(top=0.85)
 #Also, based on the music effects,it is possible to see that there is higher level of insomnia, therefore higher level of depression when participants feel like the effects have worsen after listening to music. 
 
 
-#d) 1 plot illustrating standard deviation
+#d)1 plot illustrating standard deviation
+#
+plt.figure(figsize=(8,5))
+sns.lineplot(data=data, x="Age", y="Insomnia", ci="sd")
+plt.title("Insomnia by Age with Standard Deviation")
+
+# e) 1 plot including a linear regression
+# most peole who say to ahve anxiety are between thee age oge of 10 and 40 and aare not instrumentalsite
+e = sns.lmplot(data=data, x="Age", y="Anxiety", hue="Instrumentalist")
+e.fig.suptitle("Linear Regression: Anxiety vs Hours Per Day by Instrumentalist Status")
+plt.show()
+
+#6.2.Visualizing categorical data (10 plots):
+# a) 1 categorical scatter plot with jitter enabled
+sns.stripplot(data=data, x="Depression", y="Fav genre", jitter=True, hue='Composer' )
+plt.title("Depression Distribution by Genre (Jitter Enabled)")
+plt.show()
+
+# b) 1 categorical scatter plot with jitter disabled (explain your choice of variable for this one)
+sns.stripplot(data=data, x="Music effects", y="OCD", jitter=False, hue='While working')
+plt.title("Anxiety Levels by Composer Status (No Jitter)")
+plt.show()
+
+# c) 1 “beeswarm” plot representing 3 variables
+sns.swarmplot(data=data, x="Depression", y="Fav genre", hue="Foreign languages")
+plt.title("Anxiety by Genre and Instrumentalist Status (Beeswarm)")
+plt.show()
+
+# d) 1 box plot representing 3 variables
+sns.boxplot(data=data, x="Anxiety", y="Hours per day", hue="Exploratory")
+plt.title("Depression by Genre and Instrumentalist (Box Plot)")
+plt.show()
+
+# e) 1 box plot showing the shape of the distribution (boxenplot())
+sns.boxenplot(data=data, x='Music effects', y="Anxiety", hue='Instrumentalist')
+plt.title("Distribution Shape of Anxiety Scores Across Genres (Boxenplot)")
+plt.xticks(rotation=45)
+plt.show()
+
+# f) 1 split violin plot representing 3 variables with bandwidth adjusted for better visualization
+sns.violinplot(data=data, x="Instrumentalist", y="Depression", hue="Composer", split=True, bw=0.3)
+plt.title("Depression by Genre Split by Composer Status (Violin Plot)")
+plt.show()
 
 
+# g) 1 violin plot with scatter points inside the violin shapes
+sns.violinplot( data=data, x="Composer", y="Anxiety", inner=None)
+sns.stripplot(data=data, x="Composer", y="Anxiety", color="pink", size=4, jitter=True, alpha=0.5)
+plt.title("Anxiety Distribution for Instrumentalists with Scatter Overlay")
+plt.show()
 
-#e) 1 plot including a linear regression
+
+# h) 1 bar plot representing 3 variables showing 97% confidence intervals
+sns.barplot(data=data, x="Fav genre", y="Depression",hue="Instrumentalist",ci=97)
+plt.title("Depression Across Genres with 97% Confidence Interval")
+plt.xticks(rotation=45)
+plt.show()
+
+# i) 1 point plot representing 3 variables showing 90% confidence intervals and lines in dashed style
+sns.pointplot( data=data, x="Fav genre", y="Anxiety", hue="Composer", ci=90, linestyles="--")
+plt.title("Anxiety Across Genres with 90% CI (Dashed Lines)")
+plt.xticks(rotation=45)
+plt.show()
+
+# j) 1 bar plot showing the number of observations in each category
+sns.countplot( data=data, x="Fav genre", color='#a91616', hue="Composer")
+plt.title("Number of Survey Respondents per Genre")
+plt.xticks(rotation=45)
+plt.show()
+
+
+#6.3. Visualizing bivariate distributions (3 plots):
+# a) 1 “heatmap” plot representing 2 variables with color intensity bar and adjusted bin width.
+sns.displot( data=data, x="Age", y="Depression", kind="hist", binwidth=(2, 1), cbar=True)
+plt.title("Heatmap: Age vs Depression")
+plt.show()
+
+# b) 1 distribution plot with 2 variables making use of bivariate density contours with amount of curves and its lowest level adjusted (use a kernel density estimation displot()).
+sns.displot(data=data, x="Age", y="Anxiety", kind="kde", levels=12, thresh=0.1)
+plt.title("Bivariate KDE: Age vs Anxiety")
+
+# c) 1 “heatmap” plot representing 3 variables, again of kind kde.
+sns.displot( data=data, x="Hours per day", y="Depression", hue="Instrumentalist", kind="kde")
+plt.title("KDE Heatmap: Hours per Day vs Depression, Colored by Instrumentalist Status")
+
 
 
 
