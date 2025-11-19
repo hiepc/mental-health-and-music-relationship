@@ -342,29 +342,24 @@ import seaborn as sns
 
 data = pd.read_csv('mxmh_survey_results.csv')
 
-fig,(ax1, ax2) = plt.subplots(1, 2, figsize=(14,6))
+fig, axs = plt.subplots(1, 2, figsize=(14,6))
 
 #right subplot
-sns.countplot(data = data, x = "Music effects", ax = ax1, palette=["blue", "red", "green"], order= data["Music effects"].value_counts().index)
-ax1.set_title("Distribution of Music Effects on Mental Health", fontsize=13, fontweight="bold")
-ax1.set_xlabel("Music Effect", fontsize=11)
-ax1.set_ylabel("Meantal Health", fontsize=11)
+axs[0].countplot(data=data, x = "Music effects", palette=["blue", "red", "green"], )
+axs[0].set_title("", fontsize=13, fontweight="bold")
+axs[0].set_xlabel("Age", fontsize=11)
+axs[0].set_ylabel("Depression", fontsize=11)
 
 #left subplot
-mental_health_columns = ["Anxiety", "Depression", "Insomnia", "OCD"]
-melted_data = data.melt(id_vars="Music effects", value_vars=mental_health_columns, var_name="Condition", value_name="Score")
-
-sns.barplot(data=melted_data, x="Condition", y="Score", hue="Music effects", ax=ax2, palette=["cyan", "pink", "purple"])
-ax2.set_title("Average Mental Health Scores by Music Effect", fontsize=13, fontweight="bold")
-ax2.set_xlabel("Mental Health condition", fontsize=11)
-ax2.set_ylabel("Average Score (0-10 scale)", fontsize=11)
-ax2.legend(title="Music Effect")
+axs[1].barplot(data=data, x="Condition", y="Score", palette=["cyan", "pink", "purple"])
+axs[1].set_title("", fontsize=13, fontweight="bold")
+axs[1].set_xlabel("", fontsize=11)
+axs[1].set_ylabel("", fontsize=11)
+axs[1].legend(title="")
 
 plt.show()
-#comment explination: The right bar plot represents the count of respondents by music effects whether they improved, had no effect or worsened
-#The left bar plot represents the average scores of anxiety, depression, insomnia and OCD grouped by music effects whether they improved, had no effect or worsened
-#How this helps is that it shows both the distribution of perceived music effects and how they correlate with mental health scores.
-
+#comment explination: 
+    
 #------------------------------------------------------------------------------------
 
 
