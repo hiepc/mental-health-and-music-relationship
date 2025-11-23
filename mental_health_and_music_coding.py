@@ -338,28 +338,30 @@ plt.show()
 ##one plot two subplots
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 data = pd.read_csv('mxmh_survey_results.csv')
 
 fig, axs = plt.subplots(1, 2, figsize=(14,6))
 
 #right subplot
-axs[0].countplot(data=data, x = "Music effects", palette=["blue", "red", "green"], )
-axs[0].set_title("", fontsize=13, fontweight="bold")
-axs[0].set_xlabel("Age", fontsize=11)
-axs[0].set_ylabel("Depression", fontsize=11)
+axs[0].bar(data["Fav genre"], data["Anxiety"])
+axs[0].set_title("Anxiety Levels by Genre", fontsize=13, fontweight="bold")
+axs[0].set_xlabel("Genre", fontsize=11)
+axs[0].set_ylabel("Anxiety Score", fontsize=11)
+axs[0].tick_params(axis="x", rotation=90) #This is used to rotate the x axis labes so that it is clear and not one on top of each other
 
 #left subplot
-axs[1].barplot(data=data, x="Condition", y="Score", palette=["cyan", "pink", "purple"])
-axs[1].set_title("", fontsize=13, fontweight="bold")
-axs[1].set_xlabel("", fontsize=11)
-axs[1].set_ylabel("", fontsize=11)
-axs[1].legend(title="")
+axs[1].bar(data["Fav genre"], data["Depression"])
+axs[1].set_title("Depression Levels by Genre", fontsize=13, fontweight="bold")
+axs[1].set_xlabel("Genre", fontsize=11)
+axs[1].set_ylabel("Depression score", fontsize=11)
+axs[1].tick_params(axis="x", rotation=90) #This is used to rotate the x axis labes so that it is clear and not one on top of each other
 
 plt.show()
-#comment explination: 
-    
+#comment explination: This graph is comparing anxiety and depression levels across different music genres.
+#It lists the same set of genres for both anxiety and depression with the side by side comparidon of how each
+# genre realtes to the two mental health states. It aims to show which genre is associated with high/low levels of mental illnesses.
+
 #------------------------------------------------------------------------------------
 
 
