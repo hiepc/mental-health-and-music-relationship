@@ -203,18 +203,8 @@ plt.show()
 
 ##scatter plot
 #=======
-#scatter plot
-
-data = pd.read_csv('mxmh_survey_results.csv')
-
 
 print(data.describe())
-
-#<<<<<<< HEAD
-#sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
-#=======
-#<<<<<<< Updated upstream
-
 
 sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
