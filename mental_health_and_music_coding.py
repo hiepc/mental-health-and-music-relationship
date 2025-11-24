@@ -757,13 +757,13 @@ print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency 
 #6.1.Visualizing statistical relationships (5 plots): (using SEABORN)
 
     
-#a) 1 plot using Faceting feature (col parameter in the relplot() function)
-h = sns.relplot(data=data, y="Hours per day", x="While working", hue="Age", col="Music effects")
-h.fig.suptitle("Title: Hours per day listened to music while working or not: (age group and the benefits from it)", fontsize=12, fontweight='bold')
+#a) 1 plot using Faceting feature (col parameter in the catplot() function)
+h = sns.catplot(data=data, y="Hours per day", x="Music effects", hue="Composer", kind="bar", col="While working")
+h.fig.suptitle("Title: Hours per day listened to music while working or not, including the benefits from it", fontsize=12, fontweight='bold')
 h.fig.subplots_adjust(top=0.85)
 
-#b) 1 plot representing 5 variables at once (x, y, hue, size, col): 
-w = sns.relplot(data=data, y="Music effects", x="Hours per day", hue="Age", size="Instrumentalist", col="While working")
+#b) 1 plot representing 5 variables at once (x, y, hue, kind, col): 
+w = sns.catplot(data=data, x="Music effects", y="Hours per day", hue="Instrumentalist", kind="bar", col="While working")
 w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
 w.fig.subplots_adjust(top=0.85)
 
