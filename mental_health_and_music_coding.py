@@ -1,5 +1,7 @@
 #DATASET
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 data = pd.read_csv("mxmh_survey_results.csv")
 
@@ -151,9 +153,6 @@ for music_effects in music_effects:
 #1 plot of any type containing data from more than 1 array using different 
 #colors and line styles
 
-import pandas as pd
-import matplotlib.pyplot as plt
-
 x = Hours_Per_Day
 y1 = anxiety
 y2 = depression
@@ -183,9 +182,6 @@ plt.show()
 
 #histogram
 
-import pandas as pd
-import matplotlib.pyplot as plt
-
 x = insomnia
 plt.title("Self-Reported Insomnia")
 #<<<<<<< HEAD
@@ -203,17 +199,11 @@ plt.show()
 #Comment: Each participant have to rate their insomnia on a scale from 1-10. 
 #This plot (historgram) displays the frequency of each rating. 
 
-
 #------------------------------------------------------------------------------------
-
 
 ##scatter plot
 #=======
 #scatter plot
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 data = pd.read_csv('mxmh_survey_results.csv')
 
@@ -243,9 +233,6 @@ plt.show()
 #------------------------------------------------------------------------------------
 
 ##pie plot
-import matplotlib.pyplot as plt
-
-
 
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 g.fig.suptitle("Title: Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
@@ -268,7 +255,6 @@ plt.show()
 
 ##bar plot
 #explanation: To make the bar plot of the hours per day of listenning to music by the different streaming services, we first calculated their own individual mean then repsted the plot with bars.
-import pandas as pd
 
 spotify_user = data[data['Primary streaming service'] == 'Spotify']
 mean_hours_per_day_s = spotify_user['Hours per day'].mean()
@@ -293,7 +279,6 @@ print('Mean of no streaming services:', mean_hours_per_day_i)
 #Comment: In this scatter plot, each dot represents a single observation. 
 #This plot allows us to determine if there's a relationship between the age of a person and the number of hours of music listened in a day.
 
-import matplotlib.pyplot as plt
 
 Streaming_service = ['Spotify', 'Pandora', 'YouTube Music', 'Apple Music', 'None']
 Means_of_hours_per_day = [3.8373, 2.1364, 3.2207, 3.5588, 2.9542]
@@ -308,12 +293,7 @@ plt.show()
 
 ##grid plot
 #explanation: This plot uses a data sample of the age of the participants by their auto-evaluation of the level of their different mental disorder: anxiety, insomnia, depression
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-
-data = pd.read_csv('mxmh_survey_results.csv')
 data_sample= data.sample(100)
 
 print(data_sample['Age'],data_sample['Anxiety'].describe())
@@ -336,10 +316,6 @@ plt.show()
 #------------------------------------------------------------------------------------
 
 ##one plot two subplots
-import pandas as pd
-import matplotlib.pyplot as plt
-
-data = pd.read_csv('mxmh_survey_results.csv')
 
 fig, axs = plt.subplots(1, 2, figsize=(14,6))
 
@@ -757,9 +733,6 @@ plt.show()
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
 
 
-
-
-
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
 
@@ -768,19 +741,18 @@ print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], n
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
 
 
-
 #Relationship between being an instrumentalist and effect of music on mental health (improve or worsen)
 print(pd.crosstab(categorical["Instrumentalist"],categorical["Music effects"], normalize=True))
 
 
 #Relationship between listeners who love to exlore new genres/artists and listeners who regularly listen to music in foreign languages
 print(pd.crosstab(categorical["Exploratory"],categorical["Foreign languages"], normalize=True))
-
 
 
 #Relationship between being a composer and favourite genre of music
 pd.set_option('display.max_columns', None)
 print(pd.crosstab(categorical["Composer"],categorical["Fav genre"], normalize=True))
+
 
 #Relationship between music genres and effect on mental health (improve or worsen)
 pd.set_option('display.max_columns', None)
