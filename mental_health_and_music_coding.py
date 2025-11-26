@@ -845,6 +845,14 @@ plt.title("Number of Survey Respondents per Genre")
 plt.xticks(rotation=45)
 plt.show()
 
+#new plot for question 1
+palette = {"Improve": "#08A045", "No effect": "#FAD643", "Worsen": "#FF1F1F"}
+sns.countplot(data=data, x="Fav genre", hue="Music effects", palette=palette)
+plt.xticks(rotation=45)
+plt.title("What genre has the best effects on health?")
+plt.show()
+#plt.pie(data["Frequency"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
+#plt.show()
 
 #6.3. Visualizing bivariate distributions (3 plots):
 # a) 1 “heatmap” plot representing 2 variables with color intensity bar and adjusted bin width.
