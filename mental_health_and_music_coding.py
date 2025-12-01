@@ -348,7 +348,7 @@ g.fig.subplots_adjust(top=0.85)
 #------------------------------------
 #-------------------------------------
 #------------------------------------
-#2. PRELIMINARY STEPS (DELIVERABLE 3) by Alice
+#2. PRELIMINARY STEPS (DELIVERABLE 3) 
 
 #a) Initial data inspection:
 print(data.describe())
@@ -777,7 +777,6 @@ w.fig.suptitle("Title: Music effects based on the amount of hours per day listen
 w.fig.subplots_adjust(top=0.85)
 
 
-
 #----------------------------------------------PLOT FOR QUESTION 3----------------------------------------------------
 #c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
 z = sns.relplot(data=data, y="Depression", x="Insomnia", kind="line", hue="Music effects",col="Music effects")
@@ -887,7 +886,6 @@ plt.title("Bivariate KDE: Age vs Anxiety")
 # c) 1 “heatmap” plot representing 3 variables, again of kind kde.
 sns.displot( data=data, x="Hours per day", y="Depression", hue="Instrumentalist", kind="kde")
 plt.title("KDE Heatmap: Hours per Day vs Depression, Colored by Instrumentalist Status")
-
 
 
 
