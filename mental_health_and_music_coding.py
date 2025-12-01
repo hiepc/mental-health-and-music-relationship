@@ -892,6 +892,19 @@ plt.title("KDE Heatmap: Hours per Day vs Depression, Colored by Instrumentalist 
 
 
 
+#-----------------------------MISSING INFO QUESTION 5--------------------------------------------
+#COMPOSERS
+s = sns.catplot( data=data, x="Music effects", hue="Composer", col="While working", kind="count")
+s.fig.suptitle("The number of composers vs not composers, separated by music effects and if they listen to music at work", fontsize=12, fontweight='bold')
+s.fig.subplots_adjust(top=0.85)
+plt.show()
+
+
+#INSTRUMENTALISTS
+p = sns.catplot( data=data,x="Music effects",   hue="Instrumentalist",   col="While working",  kind="count")
+p.fig.suptitle( "The number of instrumentalists vs non-instrumentalist, separated by the music effects they experience and if they listen to music at work", fontsize=12,  fontweight='bold')
+p.fig.subplots_adjust(top=0.85)
+plt.show()
 
 
 
