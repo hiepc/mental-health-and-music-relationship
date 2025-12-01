@@ -787,6 +787,7 @@ e = sns.lmplot(data=data, x="Age", y="Anxiety", hue="Instrumentalist")
 e.fig.suptitle("Linear Regression: Anxiety vs Hours Per Day by Instrumentalist Status")
 plt.show()
 
+#-----------------------------PLOT FOR QUESTION 1------------------------------------------------------
 #6.2.Visualizing categorical data (10 plots):
 # a) 1 categorical scatter plot with jitter enabled
 sns.stripplot(data=data, x="Depression", y="Fav genre", jitter=True, hue='Composer' )
@@ -798,6 +799,8 @@ sns.stripplot(data=data, x="Music effects", y="OCD", jitter=False, hue='While wo
 plt.title("Anxiety Levels by Composer Status (No Jitter)")
 plt.show()
 
+
+#--------------------------------PLOT FOR QUESTION 1----------------------------------------------------
 # c) 1 “beeswarm” plot representing 3 variables
 sns.swarmplot(data=data, x="Depression", y="Fav genre", hue="Foreign languages")
 plt.title("Anxiety by Genre and Instrumentalist Status (Beeswarm)")
@@ -814,51 +817,55 @@ plt.title("Distribution Shape of Anxiety Scores Across Genres (Boxenplot)")
 plt.xticks(rotation=45)
 plt.show()
 
+#-----------------------------------------PLOT FOR QUESTION 2-------------------------------------------
 # f) 1 split violin plot representing 3 variables with bandwidth adjusted for better visualization
 sns.violinplot(data=data, x="Instrumentalist", y="Depression", hue="Composer", split=True, bw=0.3)
 plt.title("Depression by Genre Split by Composer Status (Violin Plot)")
 plt.show()
 
-
+#----------------------------------------PLOT FOR QUESTION 2---------------------------------------------
 # g) 1 violin plot with scatter points inside the violin shapes
 sns.violinplot( data=data, x="Composer", y="Anxiety", inner=None)
 sns.stripplot(data=data, x="Composer", y="Anxiety", color="pink", size=4, jitter=True, alpha=0.5)
 plt.title("Anxiety Distribution for Instrumentalists with Scatter Overlay")
 plt.show()
 
-
+#------------------------------------------PLOT FOR QUESTION 1---------------------------------------------
 # h) 1 bar plot representing 3 variables showing 97% confidence intervals
 sns.barplot(data=data, x="Fav genre", y="Depression",hue="Instrumentalist",ci=97)
 plt.title("Depression Across Genres with 97% Confidence Interval")
 plt.xticks(rotation=45)
 plt.show()
 
+#------------------------------------------PLOT FOR QUESTION 1-------------------------------------------
 # i) 1 point plot representing 3 variables showing 90% confidence intervals and lines in dashed style
 sns.pointplot( data=data, x="Fav genre", y="Anxiety", hue="Composer", ci=90, linestyles="--")
 plt.title("Anxiety Across Genres with 90% CI (Dashed Lines)")
 plt.xticks(rotation=45)
 plt.show()
 
+
+#----------------------------------------PLOT FOR QUESTION 2-------------------------------------------------------
 # j) 1 bar plot showing the number of observations in each category
 sns.countplot( data=data, x="Fav genre", color='#a91616', hue="Composer")
 plt.title("Number of Survey Respondents per Genre")
 plt.xticks(rotation=45)
 plt.show()
 
-#new plot for question 1
+#-----------------------------------PLOT FOR QUESTION 1-----------------------------------------------------------------
 palette = {"Improve": "#08A045", "No effect": "#FAD643", "Worsen": "#FF1F1F"}
 sns.countplot(data=data, x="Fav genre", hue="Music effects", palette=palette)
 plt.xticks(rotation=45)
 plt.title("What genre has the best effects on health?")
 plt.show()
-#plt.pie(data["Frequency"].value_counts(), labels=["Rarely", "Sometimes", "Never", "Very Frequently"] )
-#plt.show()
+
 
 #6.3. Visualizing bivariate distributions (3 plots):
 # a) 1 “heatmap” plot representing 2 variables with color intensity bar and adjusted bin width.
 sns.displot( data=data, x="Age", y="Depression", kind="hist", binwidth=(2, 1), cbar=True)
 plt.title("Heatmap: Age vs Depression")
 plt.show()
+
 
 # b) 1 distribution plot with 2 variables making use of bivariate density contours with amount of curves and its lowest level adjusted (use a kernel density estimation displot()).
 sns.displot(data=data, x="Age", y="Anxiety", kind="kde", levels=12, thresh=0.1)
