@@ -161,6 +161,8 @@ width = 0.16
 plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
 plt.bar(x + width, y2, width, color='salmon', label='depression', hatch='\\')
 
+
+#-----------------------------------------PLOT FOR QUESTION 3--------------------------------------------------
 # Add labels
 plt.xlabel('Hours of Music Listened per Day')
 plt.ylabel('Mental Health Conditions Rated from 1-10')
@@ -210,6 +212,7 @@ sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
 #>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
 
+#--------------------------------------------------PLOT FOR QUESTION 3 AND QUESTION 4------------------------------------------
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 plt.title("Hours per day listened to music based on the age group and the benefits from it", fontsize=12, fontweight='bold')
 plt.xlabel("Age")
@@ -284,6 +287,8 @@ plt.show()
 ##grid plot
 #explanation: This plot uses a data sample of the age of the participants by their auto-evaluation of the level of their different mental disorder: anxiety, insomnia, depression
 
+
+#------------------------------------------PLOT FOR QUESTION 4----------------------------------------------
 data_sample= data.sample(100)
 
 print(data_sample['Age'],data_sample['Anxiety'].describe())
@@ -491,6 +496,8 @@ plt.xlabel("OCD")
 plt.ylabel("Count")
 plt.show()
 
+
+#-----------------------------------------------PLOTS FOR QUESTION 3--------------------------------------------------
 #B) using conditioning on other variables (proposition)
 ##Age
 #Anxiety
@@ -756,17 +763,22 @@ print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency 
 
 #6.1.Visualizing statistical relationships (5 plots): (using SEABORN)
 
-    
+#--------------------------------------------------PLOT FOR QUESTION 5-----------------------------------------------
 #a) 1 plot using Faceting feature (col parameter in the catplot() function)
 h = sns.catplot(data=data, y="Hours per day", x="Music effects", hue="Composer", kind="bar", col="While working")
 h.fig.suptitle("Title: Hours per day listened to music while working or not, including the benefits from it", fontsize=12, fontweight='bold')
 h.fig.subplots_adjust(top=0.85)
 
+
+#---------------------------------------------------PLOT FOR QUESTION 5------------------------------------------
 #b) 1 plot representing 5 variables at once (x, y, hue, kind, col): 
 w = sns.catplot(data=data, x="Music effects", y="Hours per day", hue="Instrumentalist", kind="bar", col="While working")
 w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
 w.fig.subplots_adjust(top=0.85)
 
+
+
+#----------------------------------------------PLOT FOR QUESTION 3----------------------------------------------------
 #c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
 z = sns.relplot(data=data, y="Depression", x="Insomnia", kind="line", hue="Music effects",col="Music effects")
 z.fig.suptitle("Title: The depression level based on insomnia with the effects of music")
@@ -781,13 +793,14 @@ plt.figure(figsize=(8,5))
 sns.lineplot(data=data, x="Age", y="Insomnia", ci="sd")
 plt.title("Insomnia by Age with Standard Deviation")
 
+#--------------------------------------PLOT FOR QUESTION 2----------------------------------------
 # e) 1 plot including a linear regression
 # most peole who say to ahve anxiety are between thee age oge of 10 and 40 and aare not instrumentalsite
 e = sns.lmplot(data=data, x="Age", y="Anxiety", hue="Instrumentalist")
 e.fig.suptitle("Linear Regression: Anxiety vs Hours Per Day by Instrumentalist Status")
 plt.show()
 
-#-----------------------------PLOT FOR QUESTION 1------------------------------------------------------
+#---------------------------------------PLOT FOR QUESTION 1------------------------------------------------------
 #6.2.Visualizing categorical data (10 plots):
 # a) 1 categorical scatter plot with jitter enabled
 sns.stripplot(data=data, x="Depression", y="Fav genre", jitter=True, hue='Composer' )
