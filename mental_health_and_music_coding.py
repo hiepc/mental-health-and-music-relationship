@@ -1,3 +1,5 @@
+#PROJECT DONE BY: Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
+
 #DATASET
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -142,10 +144,8 @@ for music_effects in music_effects:
         print(music_effects)
     
 
-#Dorcas Bola, Alice Rancu, Olivia Leiva, Carole Hiep
-# Extract data and observe the data in a graph
 
-#<<<<<<< HEAD
+# Extract data and observe the data in a graph
 #------------------------------------------------------------------------------------
 ##array using different colors and line styles
 
@@ -162,7 +162,7 @@ plt.bar(x - width, y1, width, color='skyblue', label='anxiety', hatch='dotted')
 plt.bar(x + width, y2, width, color='salmon', label='depression', hatch='\\')
 
 
-#-----------------------------------------PLOT FOR QUESTION 3--------------------------------------------------
+
 # Add labels
 plt.xlabel('Hours of Music Listened per Day')
 plt.ylabel('Mental Health Conditions Rated from 1-10')
@@ -204,13 +204,13 @@ plt.show()
 #------------------------------------------------------------------------------------
 
 ##scatter plot
-#=======
+
 
 print(data.describe())
 
 sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
 
-#>>>>>>> e185ceedd278cb7e5044274aede013cfe2876db2
+
 
 #--------------------------------------------------PLOT FOR QUESTION 3 AND QUESTION 4------------------------------------------
 g = sns.relplot(data=data, y="Hours per day", x="Age", hue="Music effects")
@@ -288,7 +288,7 @@ plt.show()
 #explanation: This plot uses a data sample of the age of the participants by their auto-evaluation of the level of their different mental disorder: anxiety, insomnia, depression
 
 
-#------------------------------------------PLOT FOR QUESTION 4----------------------------------------------
+ 
 data_sample= data.sample(100)
 
 print(data_sample['Age'],data_sample['Anxiety'].describe())
@@ -497,7 +497,7 @@ plt.ylabel("Count")
 plt.show()
 
 
-#-----------------------------------------------PLOTS FOR QUESTION 3--------------------------------------------------
+
 #B) using conditioning on other variables (proposition)
 ##Age
 #Anxiety
@@ -763,21 +763,37 @@ print(pd.crosstab([categorical["Frequency [Classical]"], categorical["Frequency 
 
 #6.1.Visualizing statistical relationships (5 plots): (using SEABORN)
 
-#--------------------------------------------------PLOT FOR QUESTION 5-----------------------------------------------
+
 #a) 1 plot using Faceting feature (col parameter in the catplot() function)
 h = sns.catplot(data=data, y="Hours per day", x="Music effects", hue="Composer", kind="bar", col="While working")
 h.fig.suptitle("Title: Hours per day listened to music while working or not, including the benefits from it", fontsize=12, fontweight='bold')
 h.fig.subplots_adjust(top=0.85)
 
 
-#---------------------------------------------------PLOT FOR QUESTION 5------------------------------------------
+
 #b) 1 plot representing 5 variables at once (x, y, hue, kind, col): 
 w = sns.catplot(data=data, x="Music effects", y="Hours per day", hue="Instrumentalist", kind="bar", col="While working")
 w.fig.suptitle("Title: Music effects based on the amount of hours per day listening to music (instrumentalists + if participants listen or not to music while working)", fontsize=12, fontweight='bold')
 w.fig.subplots_adjust(top=0.85)
 
 
-#----------------------------------------------PLOT FOR QUESTION 3----------------------------------------------------
+
+#B.1) COMPOSERS
+s = sns.catplot( data=data, x="Music effects", hue="Composer", col="While working", kind="count")
+s.fig.suptitle("The number of composers vs not composers, separated by music effects and if they listen to music at work", fontsize=12, fontweight='bold')
+s.fig.subplots_adjust(top=0.85)
+plt.show()
+
+
+#B.2) INSTRUMENTALISTS
+p = sns.catplot( data=data,x="Music effects",   hue="Instrumentalist",   col="While working",  kind="count")
+p.fig.suptitle( "The number of instrumentalists vs non-instrumentalist, separated by the music effects they experience and if they listen to music at work", fontsize=12,  fontweight='bold')
+p.fig.subplots_adjust(top=0.85)
+plt.show()
+
+
+
+
 #c) 1 plot using line instead of points (find a variable that makes sense emphasizing continuity and explain why)
 z = sns.relplot(data=data, y="Depression", x="Insomnia", kind="line", hue="Music effects",col="Music effects")
 z.fig.suptitle("Title: The depression level based on insomnia with the effects of music")
@@ -792,14 +808,14 @@ plt.figure(figsize=(8,5))
 sns.lineplot(data=data, x="Age", y="Insomnia", ci="sd")
 plt.title("Insomnia by Age with Standard Deviation")
 
-#--------------------------------------PLOT FOR QUESTION 2----------------------------------------
+
 # e) 1 plot including a linear regression
 # most peole who say to ahve anxiety are between thee age oge of 10 and 40 and aare not instrumentalsite
 e = sns.lmplot(data=data, x="Age", y="Anxiety", hue="Instrumentalist")
 e.fig.suptitle("Linear Regression: Anxiety vs Hours Per Day by Instrumentalist Status")
 plt.show()
 
-#---------------------------------------PLOT FOR QUESTION 1------------------------------------------------------
+
 #6.2.Visualizing categorical data (10 plots):
 # a) 1 categorical scatter plot with jitter enabled
 sns.stripplot(data=data, x="Depression", y="Fav genre", jitter=True, hue='Composer' )
@@ -812,7 +828,7 @@ plt.title("Anxiety Levels by Composer Status (No Jitter)")
 plt.show()
 
 
-#--------------------------------PLOT FOR QUESTION 1----------------------------------------------------
+
 # c) 1 “beeswarm” plot representing 3 variables
 sns.swarmplot(data=data, x="Depression", y="Fav genre", hue="Foreign languages")
 plt.title("Anxiety by Genre and Instrumentalist Status (Beeswarm)")
@@ -829,27 +845,27 @@ plt.title("Distribution Shape of Anxiety Scores Across Genres (Boxenplot)")
 plt.xticks(rotation=45)
 plt.show()
 
-#-----------------------------------------PLOT FOR QUESTION 2-------------------------------------------
+
 # f) 1 split violin plot representing 3 variables with bandwidth adjusted for better visualization
 sns.violinplot(data=data, x="Instrumentalist", y="Depression", hue="Composer", split=True, bw=0.3)
 plt.title("Depression by Genre Split by Composer Status (Violin Plot)")
 plt.show()
 
-#----------------------------------------PLOT FOR QUESTION 2---------------------------------------------
+
 # g) 1 violin plot with scatter points inside the violin shapes
 sns.violinplot( data=data, x="Composer", y="Anxiety", inner=None)
 sns.stripplot(data=data, x="Composer", y="Anxiety", color="pink", size=4, jitter=True, alpha=0.5)
 plt.title("Anxiety Distribution for Instrumentalists with Scatter Overlay")
 plt.show()
 
-#------------------------------------------PLOT FOR QUESTION 1---------------------------------------------
+
 # h) 1 bar plot representing 3 variables showing 97% confidence intervals
 sns.barplot(data=data, x="Fav genre", y="Depression",hue="Instrumentalist",ci=97)
 plt.title("Depression Across Genres with 97% Confidence Interval")
 plt.xticks(rotation=45)
 plt.show()
 
-#------------------------------------------PLOT FOR QUESTION 1-------------------------------------------
+
 # i) 1 point plot representing 3 variables showing 90% confidence intervals and lines in dashed style
 sns.pointplot( data=data, x="Fav genre", y="Anxiety", hue="Composer", ci=90, linestyles="--")
 plt.title("Anxiety Across Genres with 90% CI (Dashed Lines)")
@@ -857,14 +873,14 @@ plt.xticks(rotation=45)
 plt.show()
 
 
-#----------------------------------------PLOT FOR QUESTION 2-------------------------------------------------------
+
 # j) 1 bar plot showing the number of observations in each category
 sns.countplot( data=data, x="Fav genre", color='#a91616', hue="Composer")
 plt.title("Number of Survey Respondents per Genre")
 plt.xticks(rotation=45)
 plt.show()
 
-#-----------------------------------PLOT FOR QUESTION 1-----------------------------------------------------------------
+
 palette = {"Improve": "#08A045", "No effect": "#FAD643", "Worsen": "#FF1F1F"}
 sns.countplot(data=data, x="Fav genre", hue="Music effects", palette=palette)
 plt.xticks(rotation=45)
@@ -892,19 +908,6 @@ plt.title("KDE Heatmap: Hours per Day vs Depression, Colored by Instrumentalist 
 
 
 
-#-----------------------------MISSING INFO QUESTION 5--------------------------------------------
-#COMPOSERS
-s = sns.catplot( data=data, x="Music effects", hue="Composer", col="While working", kind="count")
-s.fig.suptitle("The number of composers vs not composers, separated by music effects and if they listen to music at work", fontsize=12, fontweight='bold')
-s.fig.subplots_adjust(top=0.85)
-plt.show()
-
-
-#INSTRUMENTALISTS
-p = sns.catplot( data=data,x="Music effects",   hue="Instrumentalist",   col="While working",  kind="count")
-p.fig.suptitle( "The number of instrumentalists vs non-instrumentalist, separated by the music effects they experience and if they listen to music at work", fontsize=12,  fontweight='bold')
-p.fig.subplots_adjust(top=0.85)
-plt.show()
 
 
 
